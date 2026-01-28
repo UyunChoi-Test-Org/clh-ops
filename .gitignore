@@ -1,3 +1,42 @@
+# 1. Basic Environments (Node.js & pnpm)
 node_modules/
-.env
-*.log
+.pnpm-debug.log*
+npm-debug.log*
+
+# 2. Secrets & Credentials (운영 저장소에서 가장 중요)
+# 모든 종류의 비밀 키, 토큰, 인증서 제외
+*.pem
+*.key
+*.pub
+*.crt
+*.pfx
+.env*
+!.env.example    # 설정 가이드용 예시 파일만 허용
+.vault-password
+credentials.json
+.aws/
+.kube/config
+
+# 3. Infrastructure as Code (Terraform)
+# 테라폼 상태 파일에는 민감 정보가 포함되므로 절대 금지
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.tfvars.json
+.terraform.lock.hcl
+
+# 4. Kubernetes & Helm
+.helm/
+charts/*/charts/
+charts/*/tmpcharts/
+
+# 5. OS & IDE Logs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# 6. Husky (거버넌스 도구 내부 파일)
+.husky/_/
